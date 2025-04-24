@@ -2,6 +2,12 @@ module github.com/jordanfitz/thumbnailer
 
 go 1.24.0
 
+retract (
+	v1.0.0
+	v1.0.1
+	v1.0.3 // only contains retractions
+)
+
 require (
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
