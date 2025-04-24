@@ -1,4 +1,4 @@
-module github.com/jordanfitz.com/thumbnailer/cli
+module github.com/jordanfitz.com/thumbnailer/cmd/thumbnailer
 
 go 1.24.0
 
