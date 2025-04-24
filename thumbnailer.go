@@ -35,10 +35,8 @@ type Option func(t *Thumbnailer)
 
 // Image sets the JPG or PNG image data from which thumbnails can be generated.
 func Image(value []byte) Option {
-	img := make([]byte, len(value))
-	copy(img, value)
 	return func(t *Thumbnailer) {
-		t.img = img
+		t.img = value
 	}
 }
 

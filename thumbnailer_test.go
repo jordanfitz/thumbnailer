@@ -39,6 +39,8 @@ func approximatelyEqual(a, b float64) bool {
 }
 
 func TestThumbnailer_MaxSize(t *testing.T) {
+	t.Parallel()
+
 	testImage := loadTestImage(t, "soccerball.png")
 
 	const maxSize = 200
@@ -66,6 +68,8 @@ func TestThumbnailer_MaxSize(t *testing.T) {
 }
 
 func TestThumbnailer_OutFormat(t *testing.T) {
+	t.Parallel()
+
 	testImage := loadTestImage(t, "soccerball.png")
 
 	thumbnailData, err := New(Image(testImage), OutFormat(JPG)).Create()
@@ -76,6 +80,8 @@ func TestThumbnailer_OutFormat(t *testing.T) {
 }
 
 func TestThumbnailer_Quality(t *testing.T) {
+	t.Parallel()
+
 	testImage := loadTestImage(t, "soccerball.png")
 
 	thumb := New(Image(testImage), OutFormat(JPG))
@@ -85,16 +91,19 @@ func TestThumbnailer_Quality(t *testing.T) {
 	lowerQuality, err := thumb.With(Quality(20)).Create()
 	assert.NoError(t, err)
 
-	assert.Lessf(t, len(lowerQuality), len(defaultQuality), "lower quality should produce smaller data")
+	assert.Lessf(t, len(lowerQuality), len(defaultQuality), "lower quality should produce smaller output")
 }
 
 func TestThumbnailer_NoImage(t *testing.T) {
+	t.Parallel()
+
 	_, err := New().Create()
 	assert.Error(t, err)
 }
 
 func TestThumbnailer_BadData(t *testing.T) {
-	testData := []byte("this is not an image!")
-	_, err := New(Image(testData)).Create()
+	t.Parallel()
+
+	_, err := New(Image([]byte("this is not an image!"))).Create()
 	assert.Error(t, err)
 }
