@@ -44,7 +44,7 @@ func main() {
 To install the CLI, run `go install`:
 
 ```shell
-go install github.com/jordanfitz/thumbnailer/cmd/thumbnailer
+go install github.com/jordanfitz/thumbnailer/cmd/thumbnailer@latest
 ```
 
 Then, use the utility like this:
