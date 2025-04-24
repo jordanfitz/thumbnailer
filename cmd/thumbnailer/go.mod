@@ -2,10 +2,8 @@ module github.com/jordanfitz.com/thumbnailer/cmd/thumbnailer
 
 go 1.24.0
 
-replace github.com/jordanfitz/thumbnailer => ../../
-
 require (
-	github.com/jordanfitz/thumbnailer v0.0.0
+	github.com/jordanfitz/thumbnailer v1.0.0
 	github.com/spf13/cobra v1.9.1
 	golang.org/x/image v0.26.0
 )
